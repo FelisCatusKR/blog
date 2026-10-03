@@ -1,5 +1,6 @@
 import type { ResolvedAstroPaperConfig } from "@/types/config";
 import { getAssetPath } from "./withBase";
+import { ogVersion } from "./ogVersion";
 
 const publicFiles = import.meta.glob("/public/*", { eager: false });
 
@@ -35,7 +36,7 @@ export function resolveDefaultOgImagePath(
   if (config.features.dynamicOgImage) {
     return existsInPublic(filename)
       ? getAssetPath(filename)
-      : getAssetPath("og.png");
+      : `${getAssetPath("og.png")}?v=${ogVersion(config.site.title, config.site.description)}`;
   }
 
   if (!existsInPublic(filename)) {

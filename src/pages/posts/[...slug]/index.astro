@@ -14,6 +14,7 @@ import ShareLinks from "./_components/ShareLinks.astro";
 import BackButton from "./_components/BackButton.astro";
 import BackToTopButton from "./_components/BackToTopButton.astro";
 import AdjacentPostNav from "./_components/AdjacentPostNav.astro";
+import { ogVersion } from "@/utils/ogVersion";
 import config from "@/config";
 
 export async function getStaticPaths() {
@@ -88,7 +89,7 @@ if (!ogImageUrl && config.features.dynamicOgImage) {
     /\/+$/,
     ""
   );
-  ogImageUrl = `${postUrl}/index.png`;
+  ogImageUrl = `${postUrl}/index.png?v=${ogVersion(title, post.data.author, config.site.title)}`;
 }
 
 const ogImage = ogImageUrl

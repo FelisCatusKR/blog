@@ -30,6 +30,12 @@
   - 굵게가 인라인 코드로 끝나고 바로 조사가 붙으면(`` **`x`**를 ``) 굵게가 닫히지 않고 `**`가 글자로 보인다. `<strong><code>x</code></strong>를`로 쓴다.
   - 접는 블록은 `<details>` 다음 줄에 `<summary>`, 그 다음 빈 줄을 두어야 안의 마크다운이 렌더된다.
 
+## 미리보기(OG) 이미지
+
+- 빌드 때 satori로 그린다(`src/pages/og.png.ts`, `src/pages/posts/[...slug]/index.png.ts`). 글꼴은 Pretendard OTF(`src/utils/getOgFonts.ts`).
+- 이미지 주소에 `?v=<해시>`가 붙는다(`src/utils/ogVersion.ts`). 디스코드 등은 이미지 주소로 캐시하므로,
+  **OG 이미지의 디자인이나 글꼴을 바꾸면 `OG_DESIGN_VERSION`을 올린다.** 제목·작성자가 바뀌면 해시가 알아서 바뀐다.
+
 ## 테마에서 바꾼 곳
 
 README "테마에서 바꾼 것"에 정리한다. 테마를 바꾸면 그 목록도 같이 고친다.
